@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    // ... your other options
+    "types": ["node"]
+  },
+  "include": [
+    "**/*",
+    ".sandcastle/**/*"
+  ]
+}
