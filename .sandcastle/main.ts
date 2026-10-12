@@ -16,10 +16,10 @@ await run({
   // capability and speed for most tasks. Switch to claude-opus-4-8 for harder
   // problems, or claude-haiku-4-5-20251001 for speed.
   // agent: opencode("opencode/big-pickle"), // default agent, uses the OPENCODE_API_KEY from .env
-  agent: opencode("deepseek/deepseek-v4-flash"),
-  // agent: opencode("deepseek/deepseek-v4-flash", { // backup test if code above fails.
-  //   env: { DEEPSEEK_API_KEY: process.env.DEEPSEEK_API_KEY! },
-  // }),
+  // agent: opencode("deepseek/deepseek-v4-flash"),
+  agent: opencode("deepseek/deepseek-v4-flash", { // backup test if code above fails.
+    env: { DEEPSEEK_API_KEY: process.env.DEEPSEEK_API_KEY! },
+  }),
 
   // Path to the prompt file. Shell expressions inside are evaluated inside the
   // sandbox at the start of each iteration, so the agent always sees fresh data.
