@@ -4,7 +4,7 @@
     <img src="assets/opencode-light.svg" alt="opencode" height="200" width="420">
   </picture>
   &nbsp;&nbsp;&nbsp;
-  <img src="assets/deepseek.svg" alt="DeepSeek" width="130">
+  <img src="assets/deepseek.svg" alt="DeepSeek" width="130" height="130">
 </p>
 
 <h1 align="center">opencode + DeepSeek</h1>
