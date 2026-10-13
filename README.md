@@ -1,10 +1,10 @@
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="assets/opencode-dark.svg">
-    <img src="assets/opencode-light.svg" alt="opencode" width="420">
+    <img src="assets/opencode-light.svg" alt="opencode" height="200" width="420">
   </picture>
   &nbsp;&nbsp;&nbsp;
-  <img src="assets/deepseek.svg" alt="DeepSeek" width="100" height="100">
+  <img src="assets/deepseek.svg" alt="DeepSeek" width="130">
 </p>
 
 <h1 align="center">opencode + DeepSeek</h1>
@@ -34,16 +34,33 @@ Sandcastle can drive an autonomous agent loop with DeepSeek models.
 1. Install dependencies:
 
    ```bash
-   npm install
+   # might have activate docker first
+   colima start
+
+   # create directory for project and run this commands.
+   npm init
+   npm install --save-dev @ai-hero/sandcastle
+
+   # This scaffolds a .sandcastle directory with all the files needed.
+   npx @ai-hero/sandcastle init
    ```
 
-2. Create your environment file by copying the example:
+2. Update the newly created `main.ts` file
+
+   ```ts
+   // agent: opencode("opencode/big-pickle"),
+   agent: opencode("deepseek/deepseek-flash"),
+   ```
+
+3. Create your environment file by copying the example:
 
    ```bash
    cp .sandcastle/.env.example .sandcastle/.env
+
+   # delete OPENCODE_API_KEY=
    ```
 
-3. Fill in the required values in `.sandcastle/.env`:
+4. Fill in the required values in `.sandcastle/.env`:
 
    - `DEEPSEEK_API_KEY` — your DeepSeek API key.
    - `GH_TOKEN` — a fine-grained GitHub personal access token. Under
@@ -51,16 +68,22 @@ Sandcastle can drive an autonomous agent loop with DeepSeek models.
      **Metadata: Read**. Some agents may also need **Contents: Read and write**
      and **Pull requests: Read and write**.
 
-4. Create GitHub Issues for the work you want the agent to pick up, and give
+5. Create GitHub Issues for the work you want the agent to pick up, and give
    each one the **`Sandcastle`** label. The agent only looks at open issues with
    that label. See the
    [Sandcastle README](https://github.com/mattpocock/sandcastle/blob/main/README.md)
    for more on getting started.
 
-5. Run the agent:
+6. Run the agent:
 
    ```bash
-   npm run sandcastle
+   npx tsx .sandcastle/main.ts
+
+   # or in application root. add script to package.json
+
+   "scripts": {
+    "sandcastle": "npx tsx .sandcastle/main.ts && git push origin HEAD"
+   },
    ```
 
    This executes [`.sandcastle/main.ts`](.sandcastle/main.ts) and pushes the
