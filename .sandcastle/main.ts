@@ -17,17 +17,6 @@ await run({
   // problems, or claude-haiku-4-5-20251001 for speed.
   // agent: opencode("opencode/big-pickle"), // default agent, uses the OPENCODE_API_KEY from .env
   agent: opencode("deepseek/deepseek-flash"),
-  // agent: opencode("deepseek/deepseek-v4-flash", {
-  //   env: { DEEPSEEK_API_KEY: process.env.DEEPSEEK_API_KEY! },
-  // }),
-  // agent: opencode("deepseek-chat", {
-  //   // "deepseek-chat" or "deepseek-reasoner" depending on your target model
-  //   env: {
-  //     OPENCODE_PROVIDER: "openai", // OpenCode routes third-party keys using OpenAI-compatible structures
-  //     OPENAI_API_BASE: "https://deepseek.com",
-  //     OPENAI_API_KEY: process.env.DEEPSEEK_API_KEY!,
-  //   },
-  // }),
 
   // Path to the prompt file. Shell expressions inside are evaluated inside the
   // sandbox at the start of each iteration, so the agent always sees fresh data.
